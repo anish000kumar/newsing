@@ -3,30 +3,48 @@ import { useMemo, useState } from "react";
 import YouTube, { YouTubeEvent } from "react-youtube";
 
 const youtubeIds = [
-  "zW0pC_cOWKI",
-  "iVKQNu5rwyg",
-  "uq7IHJsSw4o",
-  "wFCIE12oIDc",
-  "Dt5ftyZjnGQ",
-  "Pu9xAVgXPHw",
-  "rZ173mZvUKw",
-  "KP6Zt_9cn-4",
-  "nHqjD3xel-0",
-  "_X_ooOfXqGQ",
-  "WFVqYRkROM4",
-  "XgW_aTG8Nak",
-  "a7bro17np_U",
-  "9A6zmfLdQ_A",
-  "lQOQ9hxaUAg",
-  "G_yZnVm42UQ",
-  "z80zQFFQEpU",
-  "BSNWKILa4p8",
-  "bBh_wj91cjY",
-  "VNFWWbTA2FA",
-  "UdmHtDaCa-o",
-  "VYZt9QUh3Ow",
-  "4vui4x7aIOw",
+  "0gQPBQT_Q9k",
+  "r592sC7c_QM",
+  "lLR44Bi01ew",
+  "4psugpMxIug",
+  "C_x98NK55pI",
+  "4DVdASLRoEw",
+  "Vq1tC0dP-M0",
+  "RrGHkA8ouUs",
+  "7Xj5PrUlhn4",
+  "MW0T2DsJSn4",
+  "KVMaKeNnmkk",
+  "gAKvwsGM92s",
+  "Bm15ifRfHkw",
+  "6Qk54AZc2go",
+  "zA9gEx23UUU",
+  "VwY-G32fUW8",
+  "1irpND0yhGA",
+  "LnzkgdPZGAU",
+  "HwOZhKwcpN8",
+  "qhVzFbIng54",
+  "k3_TAiTEzBU",
+  "vjib9WWZoKI",
+  "CViZyZ83kmM",
+  "-kSWkWi6SXw",
+  "iHZlqEmSWnQ",
+  "cWwQpcqXHrY",
+  "TZrHcjr5dJQ",
+  "HM202gkzuTk",
+  "ryFjES5mEr4",
+  "0GENOzIza78",
+  "RGqLMp-8TjY",
+  "LhD2LlwUYgk",
+  "0FmHXKNYwis",
+  "cBojWSiixaE",
+  "gvbBtw3DmGw",
+  "c63fJiLXktI",
+  "bf-i6yQEtho",
+  "zn3cPSauNc8",
+  "8si9x3CziIE",
+  "UVGX_u7_VOo",
 ];
+
 export default function Player() {
   const [animateState, setAnimateState] = useState(0);
   const [id, setId] = useState(0);
@@ -90,25 +108,39 @@ export default function Player() {
             <YouTube
               style={{ opacity: isReady ? 1 : 0 }}
               onReady={onReady}
-              videoId={youtubeIds[_id]}
+              videoId={youtubeIds[_id] + "?rel=0"}
               opts={{
-                height: window.innerHeight + 100,
+                height: window.innerHeight,
                 width: window.innerWidth,
                 playerVars: {
                   autoplay: 1,
+                  controls: 0,
+                  showinfo: 0,
+                  modestbranding: 1,
                 },
               }}
             ></YouTube>
           )}
+          <div className="fixed flex text-white gap-3 flex-col right-10 p-4 bottom-15 z-20 text-xl">
+            <button className="p-2 cursor-pointer transition active:scale-110">
+              <i className="bi bi-heart-fill "></i>
+            </button>
+            <button className="p-2 cursor-pointer transition active:scale-110">
+              <i className="bi bi-chat-fill "></i>
+            </button>
+            <button className="p-2 cursor-pointer transition active:scale-110">
+              <i className="bi bi-share-fill "></i>
+            </button>
+          </div>
         </div>
       ))}
       <div
         onClick={previous}
-        className="h-[20vh] w-full z-10 bg-slate-300 top-0 opacity-0 absolute"
+        className="h-[33vh] w-full z-10 bg-slate-300 top-0 opacity-0 absolute"
       ></div>
       <div
         onClick={next}
-        className="h-[20vh] w-full z-10 bg-slate-300 bottom-0 opacity-0 absolute"
+        className="h-[33vh] w-full z-10 bg-slate-300 bottom-0 opacity-0 absolute"
       ></div>
     </div>
   );
