@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --animation-duration: 0.2s;
+  --size: 100vh;
+}
+
+.belt {
+  overflow-y: hidden;
+  max-height: 100vh;
+}
+
+.belt.up {
+  transform: translateY(calc(var(--size) * -4));
+  transition: transform var(--animation-duration) ease-in-out;
+}
+
+.belt.down {
+  transform: translateY(calc(var(--size) * 4));
+  transition: transform var(--animation-duration) ease-in-out;
+}
