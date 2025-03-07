@@ -108,7 +108,7 @@ export default function Player() {
             <YouTube
               style={{ opacity: isReady ? 1 : 0 }}
               onReady={onReady}
-              videoId={youtubeIds[_id] + "?rel=0"}
+              videoId={youtubeIds[_id]}
               opts={{
                 height: window.innerHeight,
                 width: window.innerWidth,
@@ -116,7 +116,7 @@ export default function Player() {
                   autoplay: 1,
                   controls: 0,
                   showinfo: 0,
-                  modestbranding: 1,
+                  rel: 0,
                 },
               }}
             ></YouTube>
